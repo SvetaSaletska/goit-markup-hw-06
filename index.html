@@ -370,14 +370,84 @@
             </svg>
             </button>
             <p class="modal-title">Залиште свої дані, ми вам передзвонимо</p>
-            <form>
-                <input type="text" class="modal-input" name="name" placeholder="Name">
-                <input type="tel" class="modal-input" name="name">
-                <input type="mail" class="modal-input" name="name">
-                <input type="text" class="modal-input" name="name">
+            <form class="js-speaker-form">
+            <label>
+                <span class="modal-label-text">Ім'я</span>
+                <span class="input-wrap">
+                 <input 
+                 type="text" 
+                 class="modal-input" 
+                 name="user-name"
+                />
+                <svg class="modal-input-icon" width="18" height="18">
+                    <use href="./images/symbol-defs.svg#icon-person-blackp"></use>
+                </svg>
+            </span>
+            </label>
+            <label>
+            <span class="modal-label-text">Телефон</span>
+            <span class="input-wrap">
+                <input 
+                 type="tel" 
+                 class="modal-input" 
+                 name="user-tel"
+                />
+                <svg class="modal-input-icon" width="18" height="18">
+                    <use href="./images/symbol-defs.svg#icon-phone-black"></use>
+                </svg>
+            </span>
+            </label>
+            <label>
+                <span class="modal-label-text">Пошта</span>
+                <span class="input-wrap">
+                <input 
+                 type="mail"
+                 class="modal-input"
+                 name="user-email"
+                />
+                <svg class="modal-input-icon" width="18" height="18">
+                    <use href="./images/symbol-defs.svg#icon-email-black"></use>
+                </svg>
+            </span>
+            </label>
+            <label><span class="modal-label-text">Коментар</span>
+                <textarea
+                 name="comments"
+                 class="modal-comments"
+                 placeholder="Введіть текст"></textarea>
+            </label>
+            <label class="checkbox-label">
+                <input
+              type="checkbox"
+              class="checkbox"
+              name="policy"
+              value="true"
+            />
+            <span class="policy-text">
+                <svg class="check-icon" width="16" height="15">
+                    <use href="./images/symbol-defs.svg#icon-che1"></use>
+                </svg> 
+                Погоджуюся з розсилкою та приймаю
+            <a class="policy-link" href="">Умови договору</a>
+         </span>
+            </label>
+                <button type="submit" class="form-btn">Відправити</button>
             </form>
         </div>
     </div>
+    <script>
+        (() => {
+            document.querySelector('.js-speaker-form').addEventListener('submit', e => {
+                e.preventDefault();
+
+                new FormData(e.currentTarget).forEach((value, name) =>
+                    console.log(`${name}: ${value}`),
+                );
+
+                e.currentTarget.reset();
+            });
+        })();
+    </script>
     <script src="./js/modal.js"></script>
 </body>
 </html>
